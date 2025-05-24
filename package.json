@@ -1,12 +1,17 @@
 {
 	"name": "@whathat/timespan",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
 		"build": "tsc"
 	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/calvinzosa/timespan.git"
+	},
+	"homepage": "https://github.com/calvinzosa/timespan#readme",
 	"keywords": [],
 	"author": "___what",
 	"license": "MIT",
