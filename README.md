@@ -2,6 +2,10 @@
 
 simple library for time span/duration utilities
 ```js
+import TimeSpan from '@whathat/timespan';
+// or
+import { seconds, minutes, sleep } from '@whathat/timespan';
+
 TimeSpan.milliseconds(160); // 160
 
 TimeSpan.seconds(1);   // 1_000
