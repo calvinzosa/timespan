@@ -1,0 +1,23 @@
+{
+	"name": "@whathat/timespan",
+	"version": "1.0.0",
+	"description": "",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc"
+	},
+	"keywords": [],
+	"author": "___what",
+	"license": "ISC",
+	"packageManager": "pnpm@10.11.0",
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"require": "./dist/index.js"
+		}
+	},
+	"devDependencies": {
+		"typescript": "^5.8.3"
+	}
+}
