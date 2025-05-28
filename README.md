@@ -20,20 +20,33 @@ TimeSpan.hours(1);  // 3_600_000
 TimeSpan.hours(10); // 36_000_000
 TimeSpan.hours(24); // 86_400_000
 
-TimeSpan.toSeconds(1_000);        // 1
-TimeSpan.toSeconds(2_500);        // 2
-TimeSpan.toSeconds(2_500, false); // 2.5
+TimeSpan.toSeconds(1_000);       // 1
+TimeSpan.toSeconds(2_500);       // 2.5
+TimeSpan.toSeconds(2_500, true); // 2
+//                        ^ floor the result
 
-TimeSpan.toMinutes(60_000);        // 1
-TimeSpan.toMinutes(80_000);        // 1
-TimeSpan.toMinutes(80_000, false); // 1.333...
+TimeSpan.toMinutes(60_000);       // 1
+TimeSpan.toMinutes(80_000);       // 1.333...
+TimeSpan.toMinutes(80_000, true); // 1
 
-TimeSpan.toHours(3_600_000);        // 1
-TimeSpan.toHours(5_400_000);        // 1
-TimeSpan.toHours(5_400_000, false); // 1.5
+TimeSpan.toHours(3_600_000);       // 1
+TimeSpan.toHours(5_400_000);       // 1.5
+TimeSpan.toHours(5_400_000, true); // 1
 
 TimeSpan.timeUntil(Date.now() + TimeSpan.seconds(10)); // 10_000
-TimeSpan.timeSince(Date.now() - TimeSpan.seconds(6)); // 6_000
+TimeSpan.timeSince(Date.now() - TimeSpan.seconds(6));  // 6_000
 
 await TimeSpan.sleep(TimeSpan.seconds(2));
+//             ^ returns a promise that will be resolved in 2s
 ```
+
+# changes:
+
+> v2.0.0
+> - changed default value of `floor` parameter from `true` to `false`
+
+> v1.0.1
+> - added github repository
+
+> v1.0.0
+> - published

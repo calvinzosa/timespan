@@ -1,6 +1,6 @@
 export default class TimeSpan {
 	/**
-	 * converts milliseconds into milliseconds
+	 * (this function is here just for consistency with other time units)
 	 * ```js
 	 * TimeSpan.milliseconds(160); // 160
 	 * ```
@@ -48,12 +48,12 @@ export default class TimeSpan {
 	/**
 	 * converts milliseconds into seconds
 	 * ```js
-	 * TimeSpan.toSeconds(1_000);        // 1
-	 * TimeSpan.toSeconds(2_500);        // 2
-	 * TimeSpan.toSeconds(2_500, false); // 2.5
+	 * TimeSpan.toSeconds(1_000);       // 1
+	 * TimeSpan.toSeconds(2_500);       // 2.5
+	 * TimeSpan.toSeconds(2_500, true); // 2
 	 * ```
 	 */
-	static toSeconds(milliseconds: number, floor: boolean = true): number {
+	static toSeconds(milliseconds: number, floor: boolean = false): number {
 		const value = milliseconds / 1000;
 		if (floor) {
 			return Math.floor(value);
@@ -65,12 +65,12 @@ export default class TimeSpan {
 	/**
 	 * converts milliseconds into minutes
 	 * ```js
-	 * TimeSpan.toMinutes(60_000);        // 1
-	 * TimeSpan.toMinutes(80_000);        // 1
-	 * TimeSpan.toMinutes(80_000, false); // 1.333...
+	 * TimeSpan.toMinutes(60_000);       // 1
+	 * TimeSpan.toMinutes(80_000);       // 1.333...
+	 * TimeSpan.toMinutes(80_000, true); // 1
 	 * ```
 	 */
-	static toMinutes(milliseconds: number, floor: boolean = true): number {
+	static toMinutes(milliseconds: number, floor: boolean = false): number {
 		const value = milliseconds / 1000 / 60;
 		if (floor) {
 			return Math.floor(value);
@@ -82,12 +82,12 @@ export default class TimeSpan {
 	/**
 	 * converts milliseconds into hours
 	 * ```js
-	 * TimeSpan.toHours(3_600_000);        // 1
-	 * TimeSpan.toHours(5_400_000);        // 1
-	 * TimeSpan.toHours(5_400_000, false); // 1.5
+	 * TimeSpan.toHours(3_600_000);       // 1
+	 * TimeSpan.toHours(5_400_000);       // 1.5
+	 * TimeSpan.toHours(5_400_000, true); // 1
 	 * ```
 	 */
-	static toHours(milliseconds: number, floor: boolean = true): number {
+	static toHours(milliseconds: number, floor: boolean = false): number {
 		const value = milliseconds / 1000 / 60 / 60;
 		if (floor) {
 			return Math.floor(value);
@@ -98,6 +98,8 @@ export default class TimeSpan {
 	
 	/**
 	 * returns number of milliseconds until `timestamp` (in milliseconds)
+	 * 
+	 * can return a negative number if the timestamp is in the past
 	 */
 	static timeUntil(timestamp: number): number {
 		return timestamp - Date.now();
@@ -105,6 +107,8 @@ export default class TimeSpan {
 	
 	/**
 	 * returns number of milliseconds since `timestamp` (in milliseconds)
+	 * 
+	 * can return a negative number if the timestamp is in the future
 	 */
 	static timeSince(timestamp: number): number {
 		return Date.now() - timestamp;
